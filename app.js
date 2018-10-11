@@ -7,7 +7,6 @@
         .service('MenuSearchService', MenuSearchService);
         // .directive('foundItems', FoundItems)
         // .service('MenuSearchService', MenuSearchService)
-        // .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com/menu_items.json");
 
     // // Directive Function
     // function FoundItems() {
@@ -31,15 +30,15 @@
     }
 
     // Menu Search Service
-    MenuSearchService.$inject = ['$http', 'ApiBasePath'];
-    function MenuSearchService($http, ApiBasePath) {
+    MenuSearchService.$inject = ['$http'];
+    function MenuSearchService($http) {
         var service = this;
         console.log(service)
 
         // service.getMatchedMenuItems = function(searchTerm) {
         //     return $http({
         //         method: "GET",
-        //         url: ApiBasePath
+        //         url: "https://davids-restaurant.herokuapp.com/menu_items.json"
         //     }).then(function (result) {
         //         console.log(result);
         //     })

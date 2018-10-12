@@ -15,7 +15,7 @@
         return {
             templateUrl: 'foundItems.html',
             scope: {
-                menu: "<"
+                foundItems: "<"
             }
         };
     }

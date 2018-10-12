@@ -3,7 +3,7 @@
     <head>
         <title>Narrow Down Your Menu Choice</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+        <script type="text/javascript" src="angular.min.js"></script>
         <script type="text/javascript" src="app.js"></script>
         <link rel="stylesheet" href="styles/bootstrap.min.css">
         <link rel="stylesheet" href="styles/styles.css">
@@ -13,15 +13,16 @@
             <h1>Narrow Down Your Chinese Menu Choice</h1>
 
             <div class="form-group">
-                <input type="text" placeholder="search term" class="form-control">
+                <input type="text" placeholder="search term" class="form-control" ng-model="menuItems.searchTerm">
             </div>
             <div class="form-group narrow-button">
-                <button class="btn btn-primary">Narrow It Down For Me!</button>
+                <button class="btn btn-primary" ng-click="menuItems.getMatchedMenuItems()">Narrow It Down For Me!</button>
             </div>
 
             <!--found-items should be implemented as a component-->
             <!--<found-items found-items="menuItems" on-remove="...."></found-items>-->
-            <!--<found-items found-items="menuItems"></found-items>-->
+            <found-items found-items="menuItems"></found-items>
+           <!--TODO : PART 2-->
       </div>
 
     </body>

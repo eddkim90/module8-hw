@@ -1,5 +1,9 @@
-<h3>{{ title }}</h3>
-<ul>
-    <li>Hello</li>
-    <li ng-repeat="item in items"><span>{{ item.name }}</span></li>
-</ul>
+<div>
+    <h3>{{ menuItems.title }}:</h3>
+    <ul>
+        <li ng-repeat="item in menuItems.items">
+            <span id="itemName">{{ item.name }}</span><span id="shortName"> ({{ item.short_name }}) </span><span> - {{ item.description }}</span>
+            <button class="btn btn-sm btn-success" ng-click="menuItems.onRemove({index: $index});">Don't Want This One!</button>
+        </li>
+    </ul>
+</div>

@@ -16,9 +16,18 @@
             templateUrl: 'foundItems.html',
             scope: {
                 items: '<',
-                title: '@title'
-            }
+                title: '@title',
+                onRemove: '&'
+            },
+            controller: FoundItemsDirectiveController,
+            controllerAs: 'menuItems',
+            bindToController: true
         };
+    }
+
+    // Found Items Directive Controller
+    function FoundItemsDirectiveController() {
+        var menuItems = this;
     }
 
     // Narrow It Down Controller
@@ -27,6 +36,7 @@
         var items = this;
 
         items.searchTerm = "";
+        items.found = [];
 
         items.getMatchedMenuItems = function() {
             var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm.toLowerCase().trim());
@@ -37,6 +47,10 @@
             }).catch(function (error) {
                 console.log("[ERROR]: " + error);
             })
+        };
+
+        items.removeItem = function(index) {
+            items.found.splice(index, 1);
         }
 
     }

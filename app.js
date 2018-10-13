@@ -15,7 +15,8 @@
         return {
             templateUrl: 'foundItems.html',
             scope: {
-                found: "<"
+                items: '<',
+                title: '@title'
             }
         };
     }
@@ -31,14 +32,13 @@
             var promise = MenuSearchService.getMatchedMenuItems(items.searchTerm.toLowerCase().trim());
 
             promise.then(function (response) {
-                var found = response;
-
-                return found;
-
-            }).catch (function (error) {
+                console.log(response);
+                items.found = response;
+            }).catch(function (error) {
                 console.log("[ERROR]: " + error);
-            });
+            })
         }
+
     }
 
     // Menu Search Service
@@ -64,7 +64,7 @@
                 }).filter(Boolean);
 
                 return foundItems;
-            })
+            });
         }
     }
 
